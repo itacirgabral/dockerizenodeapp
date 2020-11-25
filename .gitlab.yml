@@ -1,0 +1,12 @@
+stages:
+  - dockerimagebuild
+
+dockerimagebuild:
+  stage: dockerimagebuild
+  script:
+    - docker build -t itacirgabral/dockerizemultistage .
+    - docker tag itacirgabral/dockerizemultistage raspberry:5000/dockerizemultistage
+    - docker push raspberry:5000/dockerizemultistage
+    - docker image rm itacirgabral/dockerizemultistage
+  only:
+    - dockerimagebuild
