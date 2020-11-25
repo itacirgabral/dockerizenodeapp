@@ -1,7 +1,7 @@
 stages:
   - dockerimagebuild
 
-dockerimagebuild:
+step_imagebuild:
   stage: dockerimagebuild
   script:
     - docker build -t itacirgabral/dockerizemultistage .
