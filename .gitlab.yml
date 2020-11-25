@@ -1,8 +1,8 @@
 stages:
-  - dockerimagebuild
+  - buiddeploy
 
 step_imagebuild:
-  stage: dockerimagebuild
+  stage: buiddeploy
   script:
     - docker build -t itacirgabral/dockerizemultistage .
     - docker tag itacirgabral/dockerizemultistage raspberry:5000/dockerizemultistage
