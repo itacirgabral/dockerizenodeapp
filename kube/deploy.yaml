@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dockerizenodeapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dockerizenodeapp
+  template:
+    metadata:
+      labels:
+        app: dockerizenodeapp
+    spec:
+      containers:
+      - name: dockerizemultistage
+        image: raspberry:5000/dockerizemultistage
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
