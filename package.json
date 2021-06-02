@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "debug": "node-dev --inspect server.js",
     "dev": "npx node-dev server.js",
     "start": "node server.js"
   },
