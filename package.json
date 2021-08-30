@@ -1,20 +1,24 @@
 {
   "name": "dockerizenodeapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "main": "src",
+  "bin": "src/index.js",
   "scripts": {
-    "debug": "node-dev --inspect server.js",
-    "dev": "npx node-dev server.js",
-    "start": "node server.js"
+    "debug": "npx node-dev -r dotenv/config --inspect src",
+    "dev": "npx node-dev -r dotenv/config src",
+    "start": "node -r dotenv/config  src",
+    "build": "npx pkg --targets node16-linux-x64  .",
+    "startBin": "PORT=3000 HOST=127.0.0.1 ./dockerizenodeapp"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "node-dev": "^7.0.0"
+    "node-dev": "^7.0.0",
+    "pkg": "^5.3.1"
   }
 }

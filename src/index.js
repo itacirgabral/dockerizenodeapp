@@ -1,8 +1,8 @@
 const express = require('express')
 
 // Constants
-const PORT = 8080
-const HOST = '0.0.0.0'
+const port = process.env.PORT
+const host = process.env.HOST
 
 // Mutants
 let n = 0
@@ -21,5 +21,5 @@ const handler = function (req, res) {
 // Rounting
 app.get('/', handler)
 
-app.listen(PORT, HOST)
-console.log(`Running on http://${HOST}:${PORT}`)
+app.listen(port, host)
+console.log(`Running on http://${host}:${port}`)
