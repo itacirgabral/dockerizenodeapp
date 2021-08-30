@@ -1,23 +1,14 @@
 # build modules
-FROM node:16 AS nodemodule
+FROM node:14 AS step0
 WORKDIR /app
 COPY package*.json ./
 RUN npm ic
-
-# new stage
-FROM node:16 AS buildtime
-WORKDIR /app
-COPY --from=nodemodule /app/node_modules /app/node_modules
-
-# copy source code
 COPY . .
-
-# build add
 RUN npm run build
 
 # last stage
 FROM amd64/alpine
 WORKDIR /
-COPY --from=buildtime /app/dockerizenodeapp /app
+COPY --from=step0 /app/dockerizenodeapp /app/app.bin
 
-CMD [ "app" ]
+CMD /app/app.bin
