@@ -7,8 +7,8 @@
     "debug": "npx node-dev -r dotenv/config --inspect src",
     "dev": "npx node-dev -r dotenv/config src",
     "start": "node -r dotenv/config  src",
-    "build": "npx pkg --targets node14-linux-x64  .",
-    "startBin": "PORT=3000 HOST=127.0.0.1 ./dockerizenodeapp"
+    "build": "npx pkg --targets node14-linux-x64 -o nodeappbin .",
+    "startBin": "PORT=4000 HOST=0.0.0.0 ./nodeappbin"
   },
   "keywords": [],
   "author": "",

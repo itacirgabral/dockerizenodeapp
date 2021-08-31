@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   web:
-    image: itacirgabral/dockerizenodeapp:v0.0.1_dev
+    image: ./
     ports:
       - "4000:4000"
     environment:

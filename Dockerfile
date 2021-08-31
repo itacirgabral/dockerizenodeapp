@@ -1,9 +1,13 @@
-# build modules
-FROM node:14 AS step0
-WORKDIR /app
+FROM node:14 AS builder
+WORKDIR /usr/src/app
+
 COPY package*.json ./
 RUN npm ic
+
 COPY . .
 RUN npm run build
 
-CMD npm start
+FROM amd64/alpine
+COPY --from=builder /usr/src/app/nodeappbin /nodeappbin
+
+ENTRYPOINT /nodeappbin

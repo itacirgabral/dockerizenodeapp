@@ -1,11 +1,9 @@
 version: '3.5'
 services:
   web:
-    build: .
+    build: ./
     ports:
       - "4000:4000"
     environment:
       HOST: "0.0.0.0"
       PORT: "4000"
-    volumes: 
-      - ./bin:/app
