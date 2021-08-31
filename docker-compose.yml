@@ -2,6 +2,7 @@ version: '3.5'
 services:
   web:
     build: ./
+    image: dockerizenodeapp
     ports:
       - "4000:4000"
     environment:
