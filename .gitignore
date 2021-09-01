@@ -1,6 +1,6 @@
 node_modules
 *.log
-dockerizenodeapp
+nodeappbin
 Dockerfile
 dockerfile-compose
 .env

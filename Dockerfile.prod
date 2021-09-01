@@ -5,7 +5,7 @@ COPY package*.json ./
 RUN npm ic
 
 COPY . .
-RUN npm run build
+RUN npx pkg --targets node14-alpine-x64 -o nodeappbin .
 
 FROM amd64/alpine
 COPY --from=builder /usr/src/app/nodeappbin /nodeappbin
