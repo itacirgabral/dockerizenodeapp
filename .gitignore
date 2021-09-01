@@ -2,3 +2,5 @@ node_modules
 *.log
 dockerizenodeapp
 Dockerfile
+dockerfile-compose
+.env
