@@ -1,4 +1,4 @@
-const express = require('express')
+const http = require('http')
 
 // Constants
 const port = process.env.PORT
@@ -7,19 +7,12 @@ const host = process.env.HOST
 // Mutants
 let n = 0
 
-// App
-const app = express()
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World' + n++);
+})
 
-// Handler
-const handler = function (req, res) {
-  debugger
-  const novoN = n + 1
-  n = novoN
-  res.send(`${n} Hello World`)
-}
-
-// Rounting
-app.get('/', handler)
-
-app.listen(port, host)
-console.log(`Running on http://${host}:${port}`)
+server.listen(port, host, () => {
+  console.log(`Server running at http://${host}:${port}/`);
+})
